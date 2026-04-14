@@ -1,0 +1,52 @@
+<app-header></app-header>
+
+<ion-content>
+  <div class="ion-text-center title">
+    <h3>Reservación</h3>
+    <p>Reserva ahora, paga durante tu estancia</p>
+  </div>
+
+  <div class="make-reserve">
+    <ion-list>
+      <ion-item lines="inset">
+        <ion-icon slot="start" src="assets/icon/lodging.svg" color="olive"></ion-icon>
+        <ion-select style="width: 100%;" interface="popover" [(ngModel)]="idtipo" placeholder="Seleccione una habitación" (ionChange)="selectTipo($event)">
+          <ion-select-option *ngFor="let opt of optsHabitacion" [value]="opt?.id">{{opt?.nombre}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item lines="inset" [disabled]="!deshabilitarP">
+        <ion-icon slot="start" src="assets/icon/floor.svg" color="olive"></ion-icon>
+        <ion-select style="width: 100%;" interface="popover" [(ngModel)]="idPiso" placeholder="Seleccione la ubicación" (ionChange)="selectPiso($event)">
+          <ion-select-option *ngFor="let opt of optsPisos" [value]="opt?.id">{{opt?.ubicacion}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      
+      <ion-item lines="inset" [disabled]="!deshabilitarN">
+        <ion-icon style="margin-left: -5px;" slot="start" src="assets/icon/number-square.svg" size="large" color="olive"></ion-icon>
+        <ion-select style="width: 100%;" interface="popover" [(ngModel)]="idHab" placeholder="Seleccione el número">
+          <ion-select-option *ngFor="let opt of numeros" [value]="opt?.id">{{opt?.numero}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item *ngFor="let servicio of servicios; let i = index">
+        <ion-icon slot="start" [src]="servicio.icono" color="olive"></ion-icon>
+        <ion-label>{{servicio.detalle}}</ion-label>
+        <ion-toggle slot="end" [checked]="servicio.isChecked" [disabled]="!servicio.es_opcional" color="marine" (ionChange)="toggle($event, i)"></ion-toggle>
+      </ion-item>
+
+      <ion-item lines="inset" class="item-form">
+        <ion-icon name="calendar-clear" slot="start" color="olive"></ion-icon>
+        <ion-label>Fecha de ingreso</ion-label>
+        <ion-input type="date" [(ngModel)]="dateStart" max="9999-12-31"></ion-input>
+      </ion-item>
+      <ion-item lines="inset" class="item-form">
+        <ion-icon name="calendar-clear" slot="start" color="olive"></ion-icon>
+        <ion-label>Fecha de salida</ion-label>
+        <ion-input type="date" [(ngModel)]="dateEnd" max="9999-12-31"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-button color="marine" expand="block" class="ion-margin-horizontal ion-margin-top" [disabled]="deshabilitarBtn()" (click)="openDetail()">Realizar Reservación</ion-button>
+  </div>
+</ion-content>

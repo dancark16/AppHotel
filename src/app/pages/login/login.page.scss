@@ -1,0 +1,44 @@
+ion-content {
+
+    .back-circle {
+        z-index: -1;
+        width: 100%;
+        height: 40%;
+        background: var(--ion-color-marine);
+        position: absolute;
+    }
+
+    --background: var(--ion-color-gray);
+
+    .container_form {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card-form {
+        border-radius: 20px;
+        background-color: var(--ion-color-platinum);
+        //box-shadow: 29px 17px 15px -3px rgba(0,0,0,0.2);
+
+        .logo {
+            text-align: center;
+        }
+
+        .btn-login {
+            margin-top: 3.5em;
+        }
+    }
+}
+
+.register {
+    //font-size: 16px;
+    color: var(--ion-color-marine);
+
+    a {
+        text-decoration: none;
+        color: var(--ion-color-marine);
+        font-weight: bold;
+    }
+}

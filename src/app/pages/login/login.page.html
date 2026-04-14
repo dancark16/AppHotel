@@ -1,0 +1,49 @@
+<ion-content fullscreen="true">
+
+  <div class="back-circle"></div>
+
+  <div class="ion-padding container_form">
+    <form class="ion-padding card-form" [formGroup]="loginForm" (ngSubmit)="submit()">
+      <div class="logo">
+        <img ngSrc="assets/icon/hotel-login.svg" width="150" height="150" alt="hotel" priority>
+      </div>
+      <ion-item class="ion-margin-vertical" color="transparent">
+        <ion-label position="stacked">Usuario</ion-label>
+        <ion-icon slot="start" name="person" color="olive"></ion-icon>
+        <ion-input type="email" formControlName="usuario" placeholder="Correo eléctronico">
+        </ion-input>
+      </ion-item>
+      <div *ngFor="let item of errorMessage.usuario">
+        <ng-container *ngIf="usuario?.hasError(item.type) && (usuario?.dirty || usuario?.touched)">
+          <ion-note color="danger">* {{item.message}}</ion-note>
+        </ng-container>
+      </div>
+
+      <ion-item class="ion-margin-vertical" color="transparent">
+        <ion-label position="stacked">Contraseña</ion-label>
+        <ion-icon slot="start" name="key" color="olive"></ion-icon>
+        <ion-input [type]="showPassword ? 'text': 'password'" formControlName="password" placeholder="Contraseña">
+        </ion-input>
+        <ion-icon class="ion-align-self-center ion-text-end" color="marine" slot="end" [name]="passwordToggleIcon"
+            (click)="togglePassword()"></ion-icon>
+      </ion-item>
+      <div *ngFor="let item of errorMessage.password">
+        <ng-container *ngIf="password?.hasError(item.type) && (password?.dirty || password?.touched)">
+          <ion-note color="danger">* {{item.message}}</ion-note>
+        </ng-container>
+      </div>
+
+      <ion-button type="submit" class="btn-login" color="marine" expand="block" [disabled]="!loginForm.valid">
+        Ingresar
+      </ion-button>
+    </form>
+  </div>
+
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar color="transparent">
+    <p class="ion-text-center ion-padding-vertical register">¿No tienes cuenta aún? <a
+        routerLink="/sign-up">Registrate</a></p>
+  </ion-toolbar>
+</ion-footer>

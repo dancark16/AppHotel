@@ -1,0 +1,11 @@
+<app-header></app-header>
+
+<ion-content [fullscreen]="true">
+  <div class="ion-text-center">
+    <ion-text color="olive"><h3>Bienvenidos</h3></ion-text>
+    <ion-text color="marine"><h4>{{usuario}}</h4></ion-text>
+  </div>
+  
+  <app-welcome-info *ngIf="!esAdmin"></app-welcome-info>
+  <app-admin-dashboard *ngIf="esAdmin"></app-admin-dashboard>
+</ion-content>

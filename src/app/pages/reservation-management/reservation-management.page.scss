@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Kurale&display=swap');
+
+* {
+    font-family: 'Kurale', serif;
+}
+
+.title {
+    margin-bottom: 1.5em;
+}
+
+.search {
+    background: white;
+    color: var(--ion-color-river);
+    margin: 16px 16px 16px 16px;
+    padding: 5px 16px 5px 16px;
+    border-radius: 10px;
+    box-shadow: 0px 3px 12px 2px rgba(0, 0, 0, 0.16);
+
+    ion-item {
+        --padding-end: 0px;
+        --inner-padding-end: 0px;
+
+        ion-input {
+            width: 100vw;
+            margin-left: 1em;
+            --placeholder-color: var(--ion-color-lead) !important;
+            --placeholder-opacity: 0.5;
+            --color: var(--ion-color-river) !important;
+        }
+
+        ion-button {
+            height: 35px;
+            margin-right: 0 !important;
+            --box-shadow: none;
+            ion-icon {
+                font-size: 2em;
+            }
+        }
+    }
+}

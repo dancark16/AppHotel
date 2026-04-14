@@ -1,0 +1,18 @@
+<ion-content>
+   <h1 class="ion-padding ion-text-center ion-text-wrap">Guarde este código QR</h1>
+   <p class="ion-padding">Este es un código que representa el ticket de su reservación.</p>
+  <!-- <ion-input placeholder="Enter Input" [(ngModel)]="encodeData"></ion-input>
+
+  <ion-button color="success" (click)="generateBar()">
+    Create QR
+  </ion-button> -->
+  <div class="ion-text-center">
+    <qrcode [qrdata]="item?.codigo" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <div class="ion-text-end ion-margin-end">
+    <ion-button color="marine" fill="outline" (click)="cerrar()">Cerrar</ion-button>
+  </div>
+</ion-footer>

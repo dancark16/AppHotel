@@ -1,0 +1,24 @@
+* {
+    font-family: 'Poppins', serif !important;
+}
+
+.item-form {
+    width: 100%;
+    --padding-end: 0px;
+    --inner-padding-end: 0px;
+    display: flex;
+    justify-content: flex-end;
+
+    ion-input,
+    ion-label {
+        width: 100%;
+        //border: 1px solid blueviolet;
+    }
+
+    ion-input {
+        text-align: end;
+        //margin-right: -16px;
+    }
+
+    //border: 1px solid red;;
+}

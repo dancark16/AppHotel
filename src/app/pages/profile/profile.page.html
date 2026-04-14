@@ -1,0 +1,43 @@
+<app-header></app-header>
+
+<ion-content>
+  <div class="ion-text-center">
+    <h3>Mi Perfil</h3>
+  </div>
+
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="auto">
+        <div class="card">
+          <div class="card-image">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/1177/1177568.png"
+              alt="Profile image">
+          </div>
+          <p class="name">{{objPersona?.nombres}} {{objPersona?.apellidos}}</p>
+
+          <p>{{objPersona?.usuario}}</p>
+
+          <div class="info">
+            <ion-text class="ion-margin-vertical">
+              <ion-icon name="calendar" color="marine" class="ion-margin-end"></ion-icon>{{objPersona?.fechaNaci | date:
+              'dd/MM/yyyy'}}
+            </ion-text>
+  
+            <ion-text class="ion-margin-vertical">
+              <ion-icon name="call" color="marine" class="ion-margin-end"></ion-icon><span *ngIf="objPersona?.celular == null">No ha registrado</span>{{objPersona?.celular}}
+            </ion-text>
+          </div>
+
+          <div class="btn-edit">
+            <ion-button fill="outline" color="olive">
+              <ion-icon name="create" slot="start"></ion-icon>
+              Editar
+            </ion-button>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

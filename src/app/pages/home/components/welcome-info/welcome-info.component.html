@@ -1,0 +1,59 @@
+<div>
+  <div>
+    <app-image-slider [slides]="slides"></app-image-slider>
+  </div>
+
+  <section class="info">
+    <div class="ion-text-center">
+      <ion-text color="olive">
+        <h3>Información del hotel</h3>
+      </ion-text>
+    </div>
+
+    <div class="details">
+      <h2 class="ion-text-center title">Dereck Hotel's</h2>
+      <ion-item lines="none" color="transparent">
+        <ion-icon name="location" slot="start" color="marine"></ion-icon>
+        &nbsp;&nbsp; La Libertad, Santa Elena, Ecuador
+      </ion-item>
+      <ion-item lines="none" color="transparent">
+        <ion-icon name="call" slot="start" color="marine"></ion-icon>
+        &nbsp;&nbsp; +593 998596597
+      </ion-item>
+      <ion-item lines="none" color="transparent">
+        <ion-icon name="time" slot="start" color="marine"></ion-icon>
+        &nbsp;&nbsp; Las 24 horas del día
+      </ion-item>
+    </div>
+  </section>
+
+  <section>
+    <div class="ion-text-center">
+      <ion-text color="olive">
+        <h3>Conoce nuestras instalaciones y servicios</h3>
+      </ion-text>
+    </div>
+    <ion-grid>
+      <ion-row class="ion-justify-content-between">
+        <ion-col sizeSm="12" sizeXs="12" sizeMd="6" size="6" *ngFor="let item of servicios" class="col">
+          <ion-card>
+            <ion-card-content>
+              <div class="card-img">
+                <img
+                  [src]="item.url" />
+              </div>
+              <div class="card-body">
+                <h4 class="card-title">
+                  {{item.title}}
+                </h4>
+                <p class="card-text">
+                  {{item.detail}}
+                </p>
+              </div>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </section>
+</div>

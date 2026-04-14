@@ -1,0 +1,48 @@
+* {
+    font-family: 'Kurale', serif;
+}
+
+ion-menu {
+    --background: var(--ion-color-gray) !important; 
+    color: var(--ion-color-marine) !important;
+    ion-content {   
+        --background: var(--ion-color-platinum) !important; 
+        ion-list-header { 
+            --background: var(--ion-color-platinum) !important;
+            font-family: 'Kurale', serif;
+        }
+        ion-list {
+            padding-top: 0px;
+            padding-bottom: 0px;
+        }
+        ion-item {
+            --background: var(--ion-color-platinum) !important;
+            --color: var(--ion-color-marine) !important;
+            ion-label {
+                font-family: 'Kurale', serif;
+            }
+        }
+
+        ion-item.selected {
+            --background: rgba(var(--ion-color-gray-rgb), 0.14) !important;
+        }
+    }
+} 
+
+ion-menu::part(container) {
+    border-radius: 24px 0 0 24px;
+  
+    box-shadow: 4px 0px 16px var(--ion-color-marine);
+}
+
+
+.logout {
+    padding-top: 4rem;
+    background: var(--ion-color-platinum);
+
+    ion-button { 
+        --background: var(--ion-color-marine);
+        --color: var(--ion-color-platinum);
+    }
+}
+

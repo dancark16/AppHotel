@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Dereck</string>
+    <string name="title_activity_main">Dereck</string>
+    <string name="package_name">com.stip.dereck.hotel</string>
+    <string name="custom_url_scheme">com.stip.dereck.hotel</string>
+</resources>

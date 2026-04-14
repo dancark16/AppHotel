@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-toolbar color="marine">
+    <div class="ion-text-center ion-text-wrap">
+      <ion-text color="platinum">
+        <h3>Detalles de la Reservación</h3>
+      </ion-text>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <div>
+      <ion-item lines="none">
+        <ion-text>
+          <h3>Habitación {{objHab?.nombre}} (&#36; {{objHab?.precioxnoche.toFixed(2)}} x Noche)</h3>
+          <p><strong>Ubicación </strong> {{objHab?.ubicacion}}</p>
+          <p><strong>Hab. &#35; </strong> {{objHab?.numero}}</p>
+          <p><strong>Fecha de Ingreso: </strong> {{dateStart | date: 'dd/MM/yyyy'}}</p>
+          <p><strong>Fecha de Salida: </strong> {{dateEnd | date: 'dd/MM/yyyy'}}</p>
+        </ion-text>
+      </ion-item>
+      <div>
+        <ion-grid>
+          <ion-row>
+            <ion-col class="ion-text-center"><b>Detalle</b></ion-col>
+            <ion-col class="ion-text-center"><b>P. Unit</b></ion-col>
+            <ion-col class="ion-text-center"><b>Total</b></ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              Hab. {{objHab?.nombre}} <span *ngIf="noches() == 1">x {{noches()}} noche </span><span
+                *ngIf="noches() > 1">x {{noches()}} noches </span>
+            </ion-col>
+            <ion-col class="ion-text-end">
+              &#36; {{objHab?.precioxnoche.toFixed(2)}}
+            </ion-col>
+            <ion-col class="ion-text-end">
+              &#36; {{calcularEstadia().toFixed(2)}}
+            </ion-col>
+          </ion-row>
+
+          <div *ngIf="serOpts?.length">
+            <ion-row *ngFor="let ser of serOpts">
+              <ion-col>
+                {{ser.detalle}}
+              </ion-col>
+              <ion-col class="ion-text-end">
+                &#36; {{ser.precio.toFixed(2)}}
+              </ion-col>
+              <ion-col class="ion-text-end">
+                &#36; {{ser.total.toFixed(2)}}
+              </ion-col>
+            </ion-row>
+          </div>
+          <ion-row>
+            <ion-col size="auto"></ion-col>
+            <ion-col class="ion-text-end"><b>Total</b></ion-col>
+            <ion-col class="ion-text-end"><b>&#36; {{total().toFixed(2)}}</b></ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+      <ion-item>
+        <ion-textarea rows="4" [(ngModel)]="comentario" placeholder="Ingrese un mensaje adicional para el equipo de trabajo"></ion-textarea>
+      </ion-item>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-row>
+    <ion-col>
+      <ion-button color="olive" fill="clear" expand="block" (click)="cerrarModal()">Descartar</ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button color="marine" expand="block" (click)="showAlertConfirm()">Reservar</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

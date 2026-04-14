@@ -1,0 +1,61 @@
+<app-header></app-header>
+
+<ion-content>
+  <div class="ion-text-center title">
+    <ion-text color="olive" >
+      <h2>Administración de Habitaciones</h2>
+    </ion-text>
+  </div>
+
+  <div class="search">
+    <ion-item lines="none" class="ion-no-padding" color="transparent">
+      <ion-icon color="marine" name="search"></ion-icon>
+      <ion-input type="search" enterkeyhint="search" inputmode="search" clearInput (ionChange)="cambiartext($event)"
+        [(ngModel)]="textBuscar" (keyup.enter)="buscar()" placeholder="Buscar Habitación"></ion-input>
+      <ion-button color="transparent" (click)="scanearCodigo()">
+        <ion-icon name="qr-code" color="marine"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </div>
+
+  <ion-segment [scrollable]="true" [value]="selectId" [(ngModel)]="selectId" (ionChange)="onChange($event)" color="olive">
+    <ion-segment-button value="all">
+      <ion-icon src="assets/icon/all.svg"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button value="reserve">
+      <ion-icon src="assets/icon/reserved.svg"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button value="busy">
+      <ion-icon src="assets/icon/hotel-door-key.svg"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button value="cleaning">
+      <ion-icon src="assets/icon/cleaning.svg"></ion-icon>
+    </ion-segment-button>
+  </ion-segment>
+
+  <ion-card style="border-left: 5px solid var(--ion-color-laurel);" *ngFor="let item of data">
+    <ion-card-content>
+      <ion-item color="transparent" lines="none" style="width: 100%;">
+        <ion-label>
+          <h3 class="ion-text-end"><b># {{item.numero}}</b></h3>
+          <h3>Hab. {{item.nombre}}</h3>
+          <p>{{item.ubicacion}}</p>
+          <p class="ion-text-start"><ion-badge slot="end" color="marine">{{item.detalle}}</ion-badge></p>
+        </ion-label>
+      </ion-item>
+      <div class="icon-order">
+        <div *ngIf="item.id_estado == 2" class="ion-text-end">
+          <ion-button color="gray" (click)="scanearCodigo()">Atender</ion-button>
+        </div>
+
+        <div *ngIf="item.id_estado == 3" class="ion-text-end">
+          <ion-button color="gray" (click)="limpiarRoom(item)">Desocupar</ion-button>
+        </div>
+
+        <div *ngIf="item.id_estado == 4" class="ion-text-end">
+          <ion-button color="gray" (click)="habilitarRoom(item)">Habilitar</ion-button>
+        </div>
+    </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

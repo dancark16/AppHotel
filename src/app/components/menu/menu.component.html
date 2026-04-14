@@ -1,0 +1,45 @@
+<ion-menu side="end" menuId="primerMenu" contentId="principal" swipeGesture="false">
+  <ion-header class="ion-no-border">
+    <ion-toolbar color="river">
+      <ion-title class="ion-text-center" style="font-size: 1.5em;">Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list lines="full">
+
+      <ion-menu-toggle *ngFor="let item of menu | async">
+        <ion-item routerDirection="root" [routerLink]="item.pagina" routerLinkActive="selected">
+          <ion-icon slot="start" [src]="item.icono" size="large" color="olive" class="icon-custom"></ion-icon>
+          <ion-label class="ion-margin-start">
+            {{item.nombre}}
+          </ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+      
+      <div class="logout">
+        <ion-menu-toggle>
+          <ion-row>
+            <ion-col class="ion-text-center">
+              <ion-button expand="block" class="ion-margin-horizontal" (click)="cerrarSesion()">
+                <ion-icon slot="start" name="log-out"></ion-icon>
+                <ion-label>
+                  Cerrar Sesión
+                </ion-label>
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-menu-toggle>
+      </div>
+      
+    </ion-list>
+  </ion-content>
+
+  <ion-footer class="ion-no-border">
+    <ion-toolbar color="night">
+      <div class="ion-text-center">
+        <ion-label>&copy; {{year}}</ion-label>
+      </div>
+    </ion-toolbar>
+  </ion-footer>
+</ion-menu>
