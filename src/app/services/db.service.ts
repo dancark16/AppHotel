@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { UtilsService } from './utils.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DbService {
-  path: string = 'http://dereckhotel.ueuo.com';
+  path: string = environment.apiUrl;
 
   constructor(private http: HttpClient, private serUtil: UtilsService) { }
   
